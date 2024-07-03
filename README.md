@@ -8,9 +8,9 @@
 5. 接收端口 测试 :xxxxxtest_frontend_get_voice_text.py
 
 注:
-/upload 是 你上传 你的录音
-/latest_media 是你接受 chatgpt 这边生成的 录音
-IP 地址我写的是 hard code 需要根据你自己的地址 改动, 要是不知道的话, 当你 成功执行 Server.py 后  命令窗口会告诉你 runing on 什么 IP地址
+/n /upload 是 你上传 你的录音
+/n /latest_media 是你接受 chatgpt 这边生成的 录音
+/n IP 地址我写的是 hard code 需要根据你自己的地址 改动, 要是不知道的话, 当你 成功执行 Server.py 后  命令窗口会告诉你 runing on 什么 IP地址
 ![image](https://github.com/dderekk/westpac_server_test/assets/101934458/a1e66d38-4127-4ffc-89c3-c8a104040ece)
 
 
