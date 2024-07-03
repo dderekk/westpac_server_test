@@ -21,7 +21,7 @@ IP 地址我写的是 hard code 需要根据你自己的地址 改动, 要是不
 3. pip install pydub 
 4. pip install pydub speechrecognition
 
-除此之外 需要:
+除此之外还有几个包:
 pyaudio
 requests
 flask
