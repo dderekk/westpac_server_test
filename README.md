@@ -16,10 +16,10 @@ IP 地址我写的是 hard code 需要根据你自己的地址 改动, 要是不
 
 
 声音 生成部分有几个 包 要装:
-pip install gTTS 
-pip install Flask pyttsx3 
-pip install pydub 
-pip install pydub speechrecognition
+1. pip install gTTS 
+2. pip install Flask pyttsx3 
+3. pip install pydub 
+4. pip install pydub speechrecognition
 
 除此之外 需要:
 pyaudio
