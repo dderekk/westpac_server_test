@@ -44,21 +44,12 @@ def upload_audio(url, audio_path):
         return response.json()
 
 if __name__ == "__main__":
-    url = 'http://192.168.56.1:5000/upload'
+    url = 'http://10.128.219.59:5000/upload'  # 替换为您的服务器地址
     audio_path = 'recorded_audio.wav'
     duration = 10  # Record duration in seconds
-
-    # while True:
-    #     print("Recording audio...")
-    #     record_audio(duration, audio_path)
-    #     print("Uploading audio...")
-    #     response = upload_audio(url, audio_path)
-    #     print("Server response:", response)
-    #     time.sleep(10)  # Wait 10 seconds before recording the next audio
 
     print("Recording audio...")
     record_audio(duration, audio_path)
     print("Uploading audio...")
     response = upload_audio(url, audio_path)
     print("Server response:", response)
-    time.sleep(10)  # Wait 10 seconds before recording the next audio

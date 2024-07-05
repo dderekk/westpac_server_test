@@ -1,17 +1,19 @@
 from gtts import gTTS
 from pydub import AudioSegment
 import requests
-
+import io
 
 def text_to_speech_and_upload(text, upload_url):
     chatgpt_response_audio_file = "chatgpt_response.wav"
 
-    # 将文本转换为语音并保存为 MP3 文件
+    # 将文本转换为语音并保存为 WAV 文件
     tts = gTTS(text=text, lang='en')
-    tts.save("chatgpt_response.mp3")
+    mp3_fp = io.BytesIO()
+    tts.write_to_fp(mp3_fp)
+    mp3_fp.seek(0)
 
     # 将 MP3 文件转换为 WAV 文件
-    response_audio = AudioSegment.from_mp3("chatgpt_response.mp3")
+    response_audio = AudioSegment.from_file(mp3_fp, format="mp3")
     response_audio.export(chatgpt_response_audio_file, format="wav")
 
     # 上传音频文件和文本到服务器
@@ -26,6 +28,7 @@ def text_to_speech_and_upload(text, upload_url):
     response = upload_audio(upload_url, chatgpt_response_audio_file, text)
     print("Server response:", response)
     return response
+
 
 
 if __name__ == "__main__":

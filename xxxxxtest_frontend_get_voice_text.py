@@ -2,7 +2,6 @@ import requests
 import wave
 import pyaudio
 
-
 def download_audio(url, output_path):
     response = requests.get(url)
     if response.status_code == 200:
@@ -13,13 +12,16 @@ def download_audio(url, output_path):
         print(f"Failed to download file: {response.status_code}")
         return None
 
-
 def play_audio(file_path):
     # Define stream chunk
     chunk = 1024
 
     # Open a .wav format music
-    f = wave.open(file_path, "rb")
+    try:
+        f = wave.open(file_path, "rb")
+    except wave.Error as e:
+        print(f"Error opening audio file: {e}")
+        return
 
     # Instantiate PyAudio
     p = pyaudio.PyAudio()
@@ -44,7 +46,6 @@ def play_audio(file_path):
 
     # Close PyAudio
     p.terminate()
-
 
 if __name__ == "__main__":
     media_info_url = 'http://10.128.219.59:5000/latest_media'  # 替换为您的服务器地址
